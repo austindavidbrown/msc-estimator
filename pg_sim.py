@@ -232,7 +232,7 @@ df.restecg = df.restecg.astype('category')
 df.slope = df.slope.astype('category')
 df.thal = df.thal.astype('category')
 
-Y, X = Formula('target ~ 0 + sex + trestbps + age + chol + cp + fbs + restecg + thalach + exang + oldpeak + slope + ca + thal').get_model_matrix(df)
+Y, X = Formula('target ~ 0 + sex + ca + trestbps + age + chol + cp + fbs + restecg + thalach + exang + oldpeak + slope + thal').get_model_matrix(df)
 X = X.to_numpy()
 Y = Y.to_numpy().squeeze(1)
 
@@ -326,7 +326,7 @@ OPACITY = 1
 ###
 # Plot samples
 ###
-for k in [1, 2]:
+for k in [1, 2, 3]:
   pg_means_k = pg_means[:, k]
   rwm_means_k = rwm_means[:, k]
 
